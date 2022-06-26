@@ -15,7 +15,10 @@ class ListingController extends Controller
      */
     public function index()
     {
-        //
+        $listings = Listing::with('tags')->get();
+
+        return view('listings.index', compact('listings'));
+
     }
 
     /**
@@ -31,7 +34,7 @@ class ListingController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreListingRequest  $request
+     * @param \App\Http\Requests\StoreListingRequest $request
      * @return \Illuminate\Http\Response
      */
     public function store(StoreListingRequest $request)
@@ -42,7 +45,7 @@ class ListingController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Listing  $listing
+     * @param \App\Models\Listing $listing
      * @return \Illuminate\Http\Response
      */
     public function show(Listing $listing)
@@ -53,7 +56,7 @@ class ListingController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Listing  $listing
+     * @param \App\Models\Listing $listing
      * @return \Illuminate\Http\Response
      */
     public function edit(Listing $listing)
@@ -64,8 +67,8 @@ class ListingController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateListingRequest  $request
-     * @param  \App\Models\Listing  $listing
+     * @param \App\Http\Requests\UpdateListingRequest $request
+     * @param \App\Models\Listing $listing
      * @return \Illuminate\Http\Response
      */
     public function update(UpdateListingRequest $request, Listing $listing)
@@ -76,7 +79,7 @@ class ListingController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Listing  $listing
+     * @param \App\Models\Listing $listing
      * @return \Illuminate\Http\Response
      */
     public function destroy(Listing $listing)

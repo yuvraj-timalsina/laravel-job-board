@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Listing;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 
@@ -15,6 +16,8 @@ class ListingFactory extends Factory
      *
      * @return array<string, mixed>
      */
+    protected  $model=Listing::class;
+
     public function definition()
     {
         $title = $this->faker->sentence(rand(5, 7));
