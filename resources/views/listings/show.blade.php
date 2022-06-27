@@ -19,7 +19,7 @@
                     </div>
                     <div class="w-full md:w-1/4 pl-4">
                         <img
-                            src="/storage/{{ $listing->logo }}"
+                            src="{{ asset('/storage/logo/' . $listing->logo) }}"
                             alt="{{ $listing->company }} logo"
                             class="max-w-full mb-4"
                         >
