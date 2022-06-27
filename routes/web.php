@@ -8,7 +8,7 @@ Route::get('/', [ListingController::class, 'index']);
 Route::get('/dashboard', function (\Illuminate\Http\Request $request) {
     return view('dashboard',
         [
-            'listings'=>$request->user()->listings
+            'listings' => $request->user()->listings
         ]);
 })->middleware(['auth'])->name('dashboard');
 
