@@ -13,7 +13,7 @@
                 <button
                     class="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">Search</button>
             </form>
-            <p class="text-sm mt-2 text-gray-500 mb-8 w-full">fullstack php, vue and node, react native</p>
+            <p class="text-sm mt-2 text-gray-500 mb-8 w-full">fullstack, php, vue, laravel, quasar, node, react</p>
         </div>
     </div>
 </section>

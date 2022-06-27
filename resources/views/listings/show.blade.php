@@ -6,9 +6,11 @@
                     {{ $listing->title }}
                 </h2>
                 <div class="md:flex-grow mr-8 mt-2 flex items-center justify-start">
-                    @foreach($listing->tags as $tag)
-                        <span
-                            class="inline-block mr-2 tracking-wide text-indigo-500 text-xs font-medium title-font py-0.5 px-1.5 border border-indigo-500 uppercase">{{ $tag->name }}</span>
+                    @foreach ($listing->tags as $tag)
+                        <a href="{{ route('listings.index', ['tag' => $tag->slug]) }}">
+                            <span
+                                class="inline-block mr-2 tracking-wide text-indigo-500 text-xs font-medium title-font py-0.5 px-1.5 border border-indigo-500 uppercase">{{ $tag->name }}</span>
+                        </a>
                     @endforeach
                 </div>
             </div>
@@ -18,17 +20,14 @@
                         {!! $listing->content !!}
                     </div>
                     <div class="w-full md:w-1/4 pl-4">
-                        <img
-                            src="{{ asset('/storage/logo/' . $listing->logo) }}"
-                            alt="{{ $listing->company }} logo"
-                            class="max-w-full mb-4"
-                        >
+                        <img src="{{ asset('/storage/logo/' . $listing->logo) }}" alt="{{ $listing->company }} logo"
+                            class="max-w-full mb-4">
                         <p class="leading-relaxed text-base">
                             <strong>Location: </strong>{{ $listing->location }}<br>
                             <strong>Company: </strong>{{ $listing->company }}
                         </p>
-                        <a href="{{route('listing.apply', $listing->slug)}}"
-                           class="block text-center my-4 tracking-wide bg-white text-indigo-500 text-sm font-medium title-font py-2 border border-indigo-500 hover:bg-indigo-500 hover:text-white uppercase">Apply
+                        <a href="{{ route('listing.apply', $listing->slug) }}"
+                            class="block text-center my-4 tracking-wide bg-white text-indigo-500 text-sm font-medium title-font py-2 border border-indigo-500 hover:bg-indigo-500 hover:text-white uppercase">Apply
                             Now</a>
                     </div>
                 </div>
