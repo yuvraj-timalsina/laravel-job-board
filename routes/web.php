@@ -3,10 +3,13 @@
 use App\Http\Controllers\ListingController;
 use Illuminate\Support\Facades\Route;
 
-Route::view('/', 'welcome');
+Route::get('/', [ListingController::class, 'index']);
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
+Route::get('/dashboard', function (\Illuminate\Http\Request $request) {
+    return view('dashboard',
+        [
+            'listings'=>$request->user()->listings
+        ]);
 })->middleware(['auth'])->name('dashboard');
 
 require __DIR__ . '/auth.php';
