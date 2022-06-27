@@ -4,7 +4,7 @@
         <div class="mb-12">
             <div class="flex-justify-center">
                 @foreach($tags as $tag)
-                    <a href="{{ route('listings.index', $tag->slug) }}"
+                    <a href="{{ route('listings.index', ['tag'=>$tag->slug]) }}"
                        class="inline-block ml-2 tracking-wide text-xs font-medium title-font py-0.5 px-1.5 border border-indigo-500 uppercase {{ $tag->slug === request()->get('tag') ? 'bg-indigo-500 text-white' : 'bg-white text-indigo-500' }}"
                     >{{ $tag->name }}</a>
                 @endforeach

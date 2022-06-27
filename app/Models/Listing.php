@@ -15,7 +15,12 @@ class Listing extends Model
 
     protected $guarded = [];
 
-    public static function where(string $string, bool $true)
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
+
+    public static function boot()
     {
         parent::boot();
 

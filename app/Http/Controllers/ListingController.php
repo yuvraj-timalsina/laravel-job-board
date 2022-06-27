@@ -21,6 +21,7 @@ class ListingController extends Controller
         $tags = Tag::orderBy('name')->get();
         $listings = Listing::with('tags')->get();
 
+
         if ($request->has('s')) {
             $query = strtolower($request->get('s'));
 
@@ -76,7 +77,7 @@ class ListingController extends Controller
      */
     public function show(Listing $listing)
     {
-        //
+        return view('listings.show', compact('listing'));
     }
 
     /**
@@ -111,5 +112,14 @@ class ListingController extends Controller
     public function destroy(Listing $listing)
     {
         //
+    }
+
+    public function apply(Listing $listing, Request $request)
+    {
+        $listing->clicks()->create([
+            'user_agent' => $request->userAgent(),
+            'ip_address' => $request->ip()
+        ]);
+        return redirect()->to($listing->apply_link);
     }
 }
