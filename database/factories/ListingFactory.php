@@ -16,7 +16,7 @@ class ListingFactory extends Factory
      *
      * @return array<string, mixed>
      */
-    protected  $model=Listing::class;
+    protected  $model = Listing::class;
 
     public function definition()
     {
@@ -31,7 +31,7 @@ class ListingFactory extends Factory
             'slug' => Str::slug($title) . '-' . rand(1111, 9999),
             'company' => $this->faker->company,
             'location' => $this->faker->country,
-            'logo' => basename($this->faker->image(storage_path('app/public'))),
+            'logo' => 'xyz.png',
             'is_highlighted' => (rand(1, 9) > 7),
             'is_active' => true,
             'content' => $content,
