@@ -51,7 +51,7 @@
                 </div>
                 <div class="mb-4 mx-2">
                     <x-label for="company" value="Company Name"/>
-                    <x-input id="company" class="block mt-1 w-full" type="text" name="company" required/>
+                    <x-input id="company" class="block mt-1 w-full" type="text" name="company" :value="old('company')" required/>
                 </div>
                 <div class="mb-4 mx-2">
                     <x-label for="logo" value="Company Logo"/>
@@ -59,15 +59,15 @@
                 </div>
                 <div class="mb-4 mx-2">
                     <x-label for="location" value="Location (e.g. Remote, United States)"/>
-                    <x-input id="location" class="block mt-1 w-full" type="text" name="location" required/>
+                    <x-input id="location" class="block mt-1 w-full" type="text" name="location" :value="old('location')" required/>
                 </div>
                 <div class="mb-4 mx-2">
                     <x-label for="apply_link" value="Link To Apply"/>
-                    <x-input id="apply_link" class=" block mt-1 w-full" type="url" name="apply_link" required/>
+                    <x-input id="apply_link" class=" block mt-1 w-full" type="url" name="apply_link" :value="old('apply_link')" required/>
                 </div>
                 <div class="mb-4 mx-2">
                     <x-label for="tags" value="Tags (separate by comma)"/>
-                    <x-input id="tags" class="block mt-1 w-full" type="text" name="tags"/>
+                    <x-input id="tags" class="block mt-1 w-full" type="text" name="tags" :value="old('tags')"/>
                 </div>
                 <div class="mb-4 mx-2">
                     <x-label for="content" value="Listing Content (Markdown is okay)"/>

@@ -62,7 +62,7 @@ class ListingController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param \App\Http\Requests\StoreListingRequest $request
+     * @param \App\Http\Requests\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -119,24 +119,25 @@ class ListingController extends Controller
                 'apply_link' => $request->apply_link,
                 'content' => $md->text($request->content),
                 'is_highlighted' => $request->filled('is_highlighted'),
-                'is_active' =>true
+                'is_active' => true
             ]);
 
             foreach (explode(',', $request->tags) as $requestTag) {
-                $tag = Tag::firstOrCreate([
-                    'slug' => Str::slug(trim($requestTag))
-                ],
+                $tag = Tag::firstOrCreate(
+                    [
+                        'slug' => Str::slug(trim($requestTag))
+                    ],
                     [
                         'name' => ucwords(trim($requestTag))
-                    ]);
+                    ]
+                );
 
                 $tag->listings()->attach($listing->id);
             }
             return redirect(to: route('dashboard'));
         } catch (\Exception $e) {
-            return redirect()->back()->withErrors(['error'=>$e->getMessage()]);
+            return redirect()->back()->withErrors(['error' => $e->getMessage()]);
         }
-
     }
 
     /**
@@ -163,12 +164,10 @@ class ListingController extends Controller
 
     /**
      * Update the specified resource in storage.
-     *
-     * @param \App\Http\Requests\UpdateListingRequest $request
      * @param \App\Models\Listing $listing
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateListingRequest $request, Listing $listing)
+    public function update(Request $request, Listing $listing)
     {
         //
     }
