@@ -1,5 +1,5 @@
 
-# Blog Website
+# Laravel Job Board
 
  Job Board Application Built w/ Laravel.
 
